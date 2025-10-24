@@ -1,57 +1,20 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>무한 가로 레이싱 (플레이어 vs AI 19)</title>
-
-  <!--
-    이 HTML 파일은 게임의 뼈대입니다.
-    - style.css : 스타일(캔버스 테두리, 버튼, 텍스트 등)
-    - script.js : 게임 로직 (아래 파일)
-    파일을 같은 폴더에 두고 index.html을 브라우저로 열면 동작합니다.
-  -->
-
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모리 게임</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!--
-    UI: 제목 / 조작 안내 / 캔버스 / HUD(결과) / 재시작 버튼
-    충분한 주석을 넣어 각 요소의 역할을 설명합니다.
-  -->
-
-  <header>
-    <h1>🏁 무한 코너 레이싱 (간단 데모)</h1>
-    <p class="subtitle">
-      조작: ↑ 가속 / ↓ 감속 / ← 위쪽으로(차선 변경) / → 아래쪽으로(차선 변경)
-    </p>
-  </header>
-
-  <!-- 캔버스: 실제 게임을 그리는 영역 -->
-  <main>
-    <canvas id="gameCanvas" width="1000" height="600" aria-label="자동차 경주 캔버스"></canvas>
-
-    <!-- 결과 표시: 게임오버 / 플레이어 승리 메시지 -->
-    <div id="hud">
-      <div id="stats">
-        <!-- 속도나 남은 AI 수 같은 정보를 여기에 채웁니다 -->
-        <span id="speedDisplay">속도: 0</span>
-        <span id="aliveAIDisplay">남은 AI: 0</span>
-      </div>
-
-      <!-- result 메시지(승리/패배) -->
-      <h2 id="result"></h2>
-
-      <!-- 재시작 버튼: 페이지 리로드 방식 -->
-      <div id="controls">
-        <button id="restartBtn" type="button">🔁 다시 시작</button>
-      </div>
+    <div id="gameArea">
+        <div id="timer">초: 0</div>
+        <div id="board" class="board"></div>
+        <button id="startButton">게임 시작</button>
     </div>
-  </main>
 
-  <!--
-    게임 로직(js)을 바디 끝에서 로드합니다.
-    (HTML 요소가 로드된 뒤에 스크립트가 실행되도록)
-  -->
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
