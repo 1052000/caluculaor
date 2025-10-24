@@ -1,104 +1,61 @@
-/* ======================================
-   style.css - 자세한 주석 포함
-   ====================================== */
-
-/* --- 전체 레이아웃 --- */
-* { box-sizing: border-box; }
-html, body {
-  height: 100%;
-  margin: 0;
-  background: #1f2933; /* 어두운 바탕 */
-  color: #fff;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-/* 헤더: 제목 + 간단한 서브타이틀 */
-header {
-  padding: 18px 10px 8px;
-}
-h1 {
-  margin: 4px 0;
-  font-size: 1.9rem;
-  color: #f6c85f;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-}
-.subtitle {
-  margin: 0;
-  color: #dbe6ee;
-  font-size: 0.95rem;
+#gameArea {
+    text-align: center;
+    position: relative;
 }
 
-/* --- 메인 캔버스 배치 --- */
-main {
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  justify-content: center;
-  padding-bottom: 20px;
+#timer {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-/* 캔버스 자체 스타일: 테두리와 그림자 등 */
-canvas {
-  display: block;
-  border: 6px solid #f8fafc;
-  background: linear-gradient(#2b3440, #242b33);
-  width: 1000px;  /* 주석: 실제 내장 width/height도 이 값과 일치해야 함 */
-  height: 600px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  border-radius: 6px;
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+    margin-top: 50px;
 }
 
-/* HUD 영역: 오른쪽에 게임 정보와 버튼을 둘 수도 있지만
-   여기서는 캔버스 아래에 간단히 배치 */
-#hud {
-  margin-top: 6px;
-  width: 1000px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-#stats {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  font-size: 0.95rem;
-  margin-bottom: 6px;
-}
-
-#speedDisplay { color: #fffbe6; }
-#aliveAIDisplay { color: #d1ffd6; }
-
-/* 결과 텍스트 (게임오버/승리) */
-#result {
-  margin: 6px 0 8px;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #ffd166;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
-}
-
-/* 버튼 스타일 (다시 시작) */
-#controls { margin-top: 6px; }
 button {
-  background: linear-gradient(#5a9, #37a);
-  color: white;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-  transition: transform 0.08s ease, box-shadow 0.08s ease;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
-button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.45); }
-button:active { transform: translateY(0); }
 
-/* 작은 화면 대응(너비가 작을 때 캔버스 축소) */
-@media (max-width: 1100px) {
-  canvas, #hud { transform: scale(0.9); transform-origin: top center; }
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
